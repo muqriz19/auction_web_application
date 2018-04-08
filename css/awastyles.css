@@ -1,0 +1,44 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background: rgb(189,189,189);
+    color: rgb(245,245,245);
+    text-align: center;
+}
+
+.simple-shadow {
+    box-shadow: 0px 5px 5px -2px rgb(33,33,33);
+}
+
+#login-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(238,238,238);
+    
+}
+
+#register-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(238,238,238);
+    margin-bottom: 100px;
+    
+}
+
+#about-project-desc {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(79, 229, 252);
+}
