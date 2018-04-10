@@ -55,7 +55,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="loginusername" placeholder="Username" aria-label="Password" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" id="login-password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                         </div>
                     </div>
 

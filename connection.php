@@ -1,16 +1,13 @@
 <?php
 
-define('db_server', 'localhost');
-define('db_username', 'root');
-define('db_passowrd', 'mysql123');
-define('db_name', 'demo');
+    //Database Credentials - Server, user, password and database name
+    $con = mysqli_connect("localhost","root","mysql123","auction_web_application_DB");
 
-//Connect to mysql database
-$link = mysql_connect(db_server, db_username, db_password, db_name);
+    
 
-//if connection doesnt exist spit out errors
-if($link === false) {
-    die("Error: Could not connect to database. - " . mysqli_connect_error());
-}
+    // Check connection else show error message
+    if (mysqli_connect_errno()) {
 
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
 ?>
