@@ -17,7 +17,7 @@
     require('connection.php');
 
     // If form submitted, insert values into the database.
-    if (isset($_REQUEST['username'])){
+    if (isset($_REQUEST['fullname'])){
         
         /*
 
@@ -26,49 +26,57 @@
             mysqli_real_escape_string()
 
         */
-        $firstname = stripslashes($_REQUEST['firstname']);
-        $firstname = mysqli_real_escape_string($con,$firstname);
+        $fullname = stripslashes($_POST['fullname']);
+        $fullname = mysqli_real_escape_string($conn,$fullname);
 
-        $lastname = stripslashes($_REQUEST['firstname']);
-        $lastname = mysqli_real_escape_string($con,$lastname);
+        $username = stripslashes($_POST['username']);
+        $username = mysqli_real_escape_string($conn,$username);
 
-        $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($con,$username);
+        $email = stripslashes($_POST['email']);
+        $email = mysqli_real_escape_string($conn,$email);
 
-        $email = stripslashes($_REQUEST['email']);
-        $email = mysqli_real_escape_string($con,$email);
+        $password = stripslashes($_POST['password']);
+        $password = mysqli_real_escape_string($conn,$password);
 
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con,$password);
-
-        $dateofbirth = stripcslashes($_REQUEST['dob']);
+        $dateofbirth = stripcslashes($_POST['dob']);
         $dateofbirth = date("Y-m-d H:i:s", strtotime($dateofbirth));
 
-        $types = stripslashes($_REQUEST['types']);
-        $types = mysqli_real_escape_string($con,$types);
+        $types = stripslashes($_POST['types']);
+        $types = mysqli_real_escape_string($conn,$types);
+        
+        $query = "INSERT INTO bidder (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
+        VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
+
+
+        $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+        echo "'$query'";
+
+        echo "'$result'";
+
 
         if($types === 'bidder') {
 
-            $query = "INSERT into `bidder` (firstName, lastName, userName, dateOfBirth, email, types) 
-            VALUES ('$firstname', '$lastname', '$username', '$email', '".md5($password)."', '$dateofbirth' '$types')";
-
-            $result = mysqli_query($con,$query);
                         
             if($result){
-                echo "<div class='form'>
-                <h3>You are registered successfully.</h3>
-                <br/>Click here to <a href='login.php'>Login</a></div>";
+                 echo "<div class='form'>
+                 <h3>You are (Bidder) registered successfully.</h3>
+                 <br/>Click here to <a href='login.php'>Login</a></div>";
+
             }
 
-        } else if ($types === 'seller') {
+            echo "<h3>Bidder</h3> '$email' ";
+
+        } else if ($types === 'seller' && mysqli_query($conn ,$query)) {
+
+            echo "<h3>Seller</h3>";
 
 
-        } else {
+        } else if ($types === 'webadmin') {
 
-
-        }   
-    
-    } else {
+            echo "<h3>Web Admin</h3>";
+        }
+    }
 
 ?>
     
@@ -100,16 +108,16 @@
 
                 <form name="registration" action="" method="post">
                     <div class="form-group">
-                        <label for="register-firstname"></i> First Name</label>
+                        <label for="register-fullname"></i> Full Name</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" name="firstname" class="form-control" id="register-firstname" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                        <input type="text" name="fullname" class="form-control" id="register-fullname" placeholder="Full Name" aria-label="Full Name" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="register-lastname"></i> Last Name</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -117,7 +125,7 @@
                         </div>
                         <input type="text" name="lastname"  class="form-control" id="register-lastname" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
                         </div>
-                    </div>
+                    </div> -->
                     
                     <div class="form-group">
                         <label for="register-username"></i> Username</label>
@@ -172,7 +180,7 @@
                     <div class="form-group">
                         <label> Type</label>
                         <br>
-                        <input type="radio" name="types" value="bidder"> Bidder
+                        <input type="radio" name="types" value="bidder" checked> Bidder
                         <br>
                         <input type="radio" name="types" value="seller"> Seller
                         <br>
@@ -181,7 +189,7 @@
                     </div>
                     
 
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary" name="store">Register</button>
                     <button type="reset" class="btn btn-primary">Reset</button>
                     <p>Already registered? Login <a href="login.php">here</a>!</p>
 
@@ -207,6 +215,5 @@
     <script src="js/popper.min.js"></script>
     <script src="js/popper-utils.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-<?php } ?>
 </body>
 </html>
