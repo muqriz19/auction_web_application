@@ -41,7 +41,7 @@
                 <!-- Start Success Talk -->
                     <?php
 
-                        echo "<p class='text-center'>Hope you enjoy our auction web application Chat away to auction!</p>";
+                        echo "<p class='text-center'>Hope you enjoy our auction web application - Chat away to auction!</p>";
                         echo "<p class='text-center'>Click here to <a href='login.php'>Login</a> or wait to be automatically redirected!</p>";
                         header('Refresh: 10; url=login.php');
                         exit();
