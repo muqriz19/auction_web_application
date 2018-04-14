@@ -16,7 +16,7 @@
 
     require('connection.php');
 
-    // If form submitted, insert values into the database.
+    //If form submitted, insert values into the database.
     if (isset($_REQUEST['fullname'])){
         
         /*
@@ -44,34 +44,26 @@
         $types = stripslashes($_POST['types']);
         $types = mysqli_real_escape_string($conn,$types);
         
-        $query = "INSERT INTO bidder (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
-        VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
 
-
-        $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
-
-        echo "'$query'";
-
-        echo "'$result'";
-
-
+        //if user is bidder
         if($types === 'bidder') {
 
-                        
-            if($result){
-                 echo "<div class='form'>
-                 <h3>You are (Bidder) registered successfully.</h3>
-                 <br/>Click here to <a href='login.php'>Login</a></div>";
+        $bidder_query = "INSERT INTO bidder (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
+        VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
 
-            }
+        
+        $result = mysqli_query($conn, $bidder_query) or die(mysqli_error($conn));
 
-            echo "<h3>Bidder</h3> '$email' ";
+        header('Location: success-register.php');
+        exit();
 
-        } else if ($types === 'seller' && mysqli_query($conn ,$query)) {
+        //if user is seller
+        } else if ($types === 'seller') {
 
             echo "<h3>Seller</h3>";
 
-
+        
+        //if user is web admin
         } else if ($types === 'webadmin') {
 
             echo "<h3>Web Admin</h3>";
