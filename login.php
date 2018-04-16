@@ -11,6 +11,29 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+
+<?php
+
+    require('connection.php');
+
+    //start this (user ((page)) specific session
+    session_start();
+
+    //check if form is submitted
+    if(isset($_POST['username'])) {
+
+        $username = stripslashes($_REQUEST['username']);
+        $username = mysqli_real_escape_string($conn,$username);
+        
+        $password = stripslashes($_REQUEST['password']);
+        $password = mysqli_real_escape_string($conn,$password);
+
+        //check whether user exist in db or not
+        $query = "SELECT * FROM ";
+
+    }
+
+?>
     
     <div class="container-fluid">
 
@@ -45,7 +68,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="login-username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" name="username" id="login-username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -55,7 +78,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="login-password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" name="password" id="login-password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
