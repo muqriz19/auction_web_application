@@ -43,45 +43,15 @@
 
         $types = stripslashes($_POST['types']);
         $types = mysqli_real_escape_string($conn,$types);
-        
 
-        //if user is bidder
-        if($types === 'bidder') {
-
-            $bidder_query = "INSERT INTO bidder (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
+        $user = "INSERT INTO user (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
             VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
 
             
-            $result = mysqli_query($conn, $bidder_query) or die(mysqli_error($conn));
+            $result = mysqli_query($conn, $user) or die(mysqli_error($conn));
 
             header('Location: success-register.php');
             exit();
-
-        //if user is seller
-        } else if ($types === 'seller') {
-
-            $seller_query = "INSERT INTO seller (idSeller, fullName, userName, dateOfBirth, email, userPassword, types)
-            VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
-
-            
-            $result = mysqli_query($conn, $seller_query) or die(mysqli_error($conn));
-
-            header('Location: success-register.php');
-            exit();
-
-        
-        //if user is web admin
-        } else if ($types === 'webadmin') {
-
-            $webadmin_query = "INSERT INTO web_admin (idWebAdmin, fullName, userName, dateOfBirth, email, userPassword, types)
-            VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
-
-            
-            $result = mysqli_query($conn, $webadmin_query) or die(mysqli_error($conn));
-
-            header('Location: success-register.php');
-            exit();
-        }
     }
 
 ?>
