@@ -23,20 +23,26 @@
     if(isset($_POST['username'])) {
 
         $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($conn,$username);
+        //$username = mysqli_real_escape_string($conn,$username);
         
-        $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($conn,$password);
+        //$password = stripslashes($_REQUEST['password']);
+        //$password = mysqli_real_escape_string($conn,$password);
+        //$password = md5($_REQUEST[$password]);
 
-        //check whether user exist in db or not
-        $query = "SELECT * FROM  user WHERE '$username' and password='".md5($password)."'";
+        //check whether user exist in db or not   
+        $query = "SELECT * FROM  user WHERE userName='$username'";//AND userPassword='".md5($password)."'";
 
-        $result = mysqli_query($conn,$query) or die(mysql_error());
+        echo "Query1=".$query;
+
+        $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
         $rows = mysqli_num_rows($result);
+
+        echo $rows;
         
         if($rows == 1) {
             $_SESSION['username'] = $username;
+            echo "fffff";
             // Redirect user to index.php
             header("Location: index.php");
             
@@ -48,6 +54,8 @@
 
         }
 
+
+    } else {
 
     }
 
@@ -79,7 +87,7 @@
             <div id="login-form" class="col-8 simple-shadow">
                 <!-- Start Login Form -->
 
-                <form action="">
+                <form action="" method="POST">
                     <div class="form-group">
                         <label for="login-username"></i> Username</label>
                         <div class="input-group mb-3">
@@ -96,7 +104,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="password" id="login-password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                        <input type="password" class="form-control" name="password" id="login-password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
@@ -120,7 +128,6 @@
     </div>
     </footer>
     <!-- End Footer -->
-
 
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/popper-utils.min.js"></script>
