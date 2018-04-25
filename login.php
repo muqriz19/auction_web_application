@@ -25,33 +25,28 @@
         $username = stripslashes($_REQUEST['username']);
         //$username = mysqli_real_escape_string($conn,$username);
         
-        //$password = stripslashes($_REQUEST['password']);
+        $password = stripslashes($_REQUEST['password']);
         //$password = mysqli_real_escape_string($conn,$password);
         //$password = md5($_REQUEST[$password]);
 
         //check whether user exist in db or not   
-        $query = "SELECT * FROM  user WHERE userName='$username'";//AND userPassword='".md5($password)."'";
+        $query = "SELECT * FROM  user WHERE userName='$username' AND userPassword='".md5($password)."'";
 
-        echo "Query1=".$query;
+        //echo "Query1=".$query;
 
         $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
         $rows = mysqli_num_rows($result);
 
-        echo $rows;
+        //echo $rows;
         
         if($rows == 1) {
             $_SESSION['username'] = $username;
-            echo "fffff";
             // Redirect user to index.php
             header("Location: index.php");
             
         } else {
-
-            echo "<div class='form'>
-            <h3>Username/password is incorrect.</h3>
-            <br/>Click here to <a href='login.php'>Login</a></div>";
-
+            $incorrect_input = '<h4 style="color:red">Username/password is incorrect.</h4>';
         }
 
 
@@ -89,6 +84,9 @@
 
                 <form action="" method="POST">
                     <div class="form-group">
+                    <?php
+                        echo $incorrect_input;
+                    ?>
                         <label for="login-username"></i> Username</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -119,8 +117,6 @@
             <div class="col-2"></div>
         </div>
     </div>
-
-
     <!-- Start Footer -->
     <footer class="footer">
     <div class="container">
