@@ -46,10 +46,9 @@
             header("Location: index.php");
             
         } else {
-            $incorrect_input = '<h4 style="color:red">Username/password is incorrect.</h4>';
+            $incorrect_input = '<h4 class="text-center" style="color:red">Username/password is incorrect.</h4><hr>';
         }
-
-
+        
     } else {
 
     }
@@ -59,33 +58,44 @@
     <div class="container-fluid">
 
         <!-- Start Logo -->
-        <div class="row">
-            <div class="img-circle mx-auto d-block logo">
-                <img src="images/logo.png" alt="Auction Web Application Logo">
+        <div id="logo">
+            <div class="row">
+                <div class="img-circle mx-auto d-block logo">
+                    <img src="images/logo.png" alt="Auction Web Application Logo">
+                </div>
             </div>
-        </div>
 
+        </div>
         <!-- End Logo -->
         <hr>
 
-        <!-- Start Title -->
-        <h2 class="text-center">Welcome to Auction Web Application</h2>
-
-        <p class="text-center">Chat away to auction. The new way to auction using chat!</p>
-
-        <!-- End Title -->
-
-        <hr>
 
         <div class="row">
             <div class="col-2"></div>
+
             <div id="login-form" class="col-8 simple-shadow">
                 <!-- Start Login Form -->
 
                 <form action="" method="POST">
+                    <div id="title">
+
+                        <div class="title">
+                
+                            <!-- Start Title -->
+                            <h2 class="text-center">Welcome to Auction Web Application</h2>
+                
+                            <p class="text-center">Chat away to auction. The new way to auction using chat!</p>
+                        </div>
+
+                        <hr>
+
+
+        <!-- End Title -->
+
+                            </div>
                     <div class="form-group">
                     <?php
-                        echo $incorrect_input;
+                            echo $incorrect_input;
                     ?>
                         <label for="login-username"></i> Username</label>
                         <div class="input-group mb-3">
@@ -114,6 +124,8 @@
 
                 <!-- End Login Form -->
             </div>
+            
+
             <div class="col-2"></div>
         </div>
     </div>

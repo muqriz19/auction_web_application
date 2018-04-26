@@ -58,29 +58,36 @@
     
     <div class="container-fluid">
 
-        <!-- Start Logo -->
-        <div class="row">
-            <div class="img-circle mx-auto d-block logo">
-                <img src="images/logo.png" alt="Auction Web Application Logo">
+        <div id="logo">
+
+            <!-- Start Logo -->
+            <div class="row">
+                <div class="img-circle mx-auto d-block logo">
+                    <img src="images/logo.png" alt="Auction Web Application Logo">
+                </div>
             </div>
+            
+            <!-- End Logo -->
         </div>
-
-        <!-- End Logo -->
-        <hr>
-
-        <!-- Start Title -->
-        <h2 class="text-center">New? Register Away!</h2>
-
-        <p class="text-center">Kindly input your registration details using the provided fields to create an account.</p>
-
-        <!-- End Title -->
-
+          
         <hr>
 
         <div class="row">
             <div class="col-2"></div>
             <div id="register-form" class="col-8 simple-shadow">
                 <!-- Start Login Form -->
+
+                <div class="title">
+            
+            <!-- Start Title -->
+            <h2 class="text-center">New? Register Away!</h2>
+            
+            <p class="text-center">Kindly input your registration details to create an account.</p>
+            
+            <!-- End Title -->
+        </div>
+          
+          <hr>
 
                 <form name="registration" action="" method="post">
                     <div class="form-group">

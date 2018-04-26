@@ -1,5 +1,5 @@
 <?php
-    //include auth.php file on all secure pages
+    require('connection.php');
     include("auth.php");
 ?>
 
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Account</title>
     <link rel="stylesheet" type="text/css" href="css/awastyles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css">
@@ -44,7 +44,7 @@
             <div id="panelback" class="col-10 simple-shadow">
 
                 <div>
-                    <h1 class="text-center">Home</h1>
+                    <h1 class="text-center">Account</h1>
                     <p class="text-center">Hello, <?php echo $_SESSION['username']; ?>!</p>
                 </div>
 
@@ -52,19 +52,15 @@
 
                 <div class="nav-around">
                     <ul>
-                        <li class="active"><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="account.php"><i class="fas fa-user"></i> Account</a></li>
+                        <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active"><a href="account.php"><i class="fas fa-user"></i> Account</a></li>
                         <li><a href="product.php"><i class="fas fa-gavel"></i> Auction</a></li>
                         <li><a href="sell.php"><i class="fas fa-dollar-sign"></i> Sell</a></li>
                         <li style="float:right"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul> 
                 </div>
 
-
-
                 <hr>
-
-
 
             </div>
 

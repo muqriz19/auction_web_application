@@ -1,10 +1,16 @@
+<?php
+    session_start();
+    // Destroying All Sessions
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Successful Register</title>
+    <title>Log Out</title>
     <link rel="stylesheet" type="text/css" href="css/awastyles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css">
@@ -14,25 +20,29 @@
     
     <div class="container-fluid">
 
-        <!-- Start Logo -->
-        <div class="row">
-            <div class="img-circle mx-auto d-block logo">
-                <img src="images/logo.png" alt="Auction Web Application Logo">
+        <div id="logo">
+
+            <!-- Start Logo -->
+            <div class="row">
+                <div class="img-circle mx-auto d-block logo">
+                    <img src="images/logo.png" alt="Auction Web Application Logo">
+                </div>
             </div>
+            
+            <!-- End Logo -->
         </div>
 
-        <!-- End Logo -->
         <hr>
 
-        <!-- Start Title -->
-        <h2 class="text-center logout">Registration Successful</h2>
+        <div class="back simple-shadow">
+            <div class="logout">
+            
+                <h2 class="text-center">Logging Out!</h2>
+                <p class="text-center">You will be redirect to the login page, shortly!</p>
+            </div>
 
-        <p class="text-center">Congrats! You are now registered in Auction Web Application!</p>
-
-        <p class="text-center">You will be redirected to the login page, shortly! Enjoy!</p>
-
-        <!-- End Title -->
-
+        </div>
+            
         <hr>
 
         <div class="row">
@@ -41,11 +51,12 @@
                 <!-- Start Success Talk -->
                     <?php
 
-                        echo "<p class='text-center'>Hope you enjoy our auction web application - Chat away to auction!</p>";
-                        echo "<p class='text-center'>Click here to <a href='login.php'>Login</a> or wait to be automatically redirected!</p>";
-                        header('Refresh: 10; url=login.php');
-                        exit();
+                        if(session_destroy()) {
+                            //echo "<p class='text-center logout'>Loging Out</p>";
+                            header('Refresh: 5; url=login.php');
+                            exit();
 
+                        }
                     ?>
                 <!-- End Success Talk -->
             </div>
