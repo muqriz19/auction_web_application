@@ -67,7 +67,7 @@
                 <h4>Sell! Sell! Sell!</h4>
                 <small id="fileHelp" class="form-text text-muted">Input the product details required to sell.</small>
 
-                <br>
+                <hr>
 
                 <form action="">
                 <div class="form-group">
@@ -83,7 +83,7 @@
                 
                 <div class="form-group">
                     <label for="product-description"> Description</label>
-                    <textarea name="" class="form-control" id="product-description" rows="5"></textarea>
+                    <textarea name="" class="form-control" id="product-description" rows="5" placeholder="Describe the product"></textarea>
                 </div>
 
                 <div class="form-group">
