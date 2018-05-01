@@ -45,21 +45,18 @@ body {
     color: rgb(238,238,238);
 }
 
-.active {
-    background-color: #5D9CEC;
-    box-shadow: 0px 0px 5px -2px rgb(33,33,33); 
+.active  {
+    background-color: rgb(33,33,33);
+    color: rgb(245,245,245);
+    box-shadow: 0px 0px 2px -2px rgb(33,33,33); 
 }
 
 
 #logo {
-        
-    height: 100px;
-    width: 100px;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 50%; /* may require vendor prefixes */
-    background: yellow;
+    width: 260px;
+    position: relative;
+    border-radius: 90%; /* may require vendor prefixes */
+    background: gold;
     box-shadow: 0px 5px 2px -2px rgb(33,33,33); 
 }
 
@@ -114,4 +111,9 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgb(79, 229, 252);
+}
+
+row > div {
+    text-align: center;
+
 }

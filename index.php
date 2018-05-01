@@ -52,7 +52,7 @@
 
                 <div class="nav-around">
                     <ul>
-                        <li class="active"><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active"><a href="index.php" class=""><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="account.php"><i class="fas fa-user"></i> Account</a></li>
                         <li><a href="product.php"><i class="fas fa-gavel"></i> Auction</a></li>
                         <li><a href="sell.php"><i class="fas fa-dollar-sign"></i> Sell</a></li>
