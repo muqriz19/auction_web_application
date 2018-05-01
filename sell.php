@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                     <label for="product-name"></i> Product Name</label>
-                    <input type="text" class="form-control" id="product-name" placeholder="Product Name">
+                    <input type="text" class="form-control" id="product-name" placeholder="Name of product">
                 </div>
                 
                 <div class="form-group">
@@ -88,7 +88,7 @@
 
                 <div class="form-group">
                     <label for="starting-bid"></i> Starting Bid</label>
-                    <input type="text" class="form-control" id="starting-bid" placeholder="0">
+                    <input type="number" class="form-control" id="starting-bid" placeholder="0">
                 </div>
                 
                 <div class="form-group">
