@@ -62,6 +62,52 @@
 
                 <hr>
 
+                <h4>Account</h4>
+                <small id="fileHelp" class="form-text text-muted">Check your account.</small>
+
+                <hr>
+
+                <div class="all-users">
+                    <h6><strong>All Users</strong></h6>
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                                //include("connection.php");
+                                
+                                $result = mysqli_query($conn, "SELECT * FROM user") ;
+                                
+                                while($test = mysqli_fetch_array($result))
+                                {
+                                    //$id = $test['id']; 
+                                    echo"<td>".$test['idBidder']."</td>";
+                                    echo"<td>".$test['fullName']."</td>";
+                                    echo"<td>".$test['userName']."</td>";
+                                    echo"<td>".$test['email']."</td>";
+                                    echo"<td>".$test['types']."</td>"; 
+                                    echo "</tr>";
+                                }
+                                mysqli_close($conn);
+                            ?>
+                    </table>                    
+
+                </div>
+
+                <br>
+
+                <div class="all-products">
+                    <h6>All Products</h6>
+                </div>
             </div>
 
             <div class="col-1"></div>
