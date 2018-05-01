@@ -21,18 +21,17 @@
 
     <div class="container-fluid">
 
-        <div id="logo">
-
+        
         <!-- Start Logo -->
         <div class="row">
+            <div id="logo">
                 <div class="img-circle mx-auto d-block logo">
                     <img src="images/logo.png" alt="Auction Web Application Logo">
                 </div>
-        </div>
+            </div>
+    
     
         <!-- End Logo -->
-        </div>
-
         <hr>
 
 
@@ -59,21 +58,15 @@
                         <li style="float:right"><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul> 
                 </div>
-
-
-
                 <hr>
-
-
-
             </div>
-
             <div class="col-1"></div>
         </div>
     </header>
 
             </div>
         </div>
+    </div>
     </div>
 
 
