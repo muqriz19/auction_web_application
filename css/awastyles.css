@@ -66,6 +66,7 @@ body {
 #panelback {
     height: 500px;
     background-color: rgb(238,238,238);
+    overflow-y:auto;
 
 }
 

@@ -21,10 +21,10 @@
 
     <div class="container-fluid">
 
-        <div id="logo">
-
+        
         <!-- Start Logo -->
         <div class="row">
+                <div id="logo">
                 <div class="img-circle mx-auto d-block logo">
                     <img src="images/logo.png" alt="Auction Web Application Logo">
                 </div>
@@ -64,6 +64,47 @@
 
                 <hr>
 
+                <h4>Sell! Sell! Sell!</h4>
+                <small id="fileHelp" class="form-text text-muted">Input the product details required to sell.</small>
+
+                <br>
+
+                <form action="">
+                <div class="form-group">
+                    <label for="product-image"></i> Upload Image</label>
+                    <input type="file" class="form-control-file" id="product-image" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Upload a clear product image for better results.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-name"></i> Product Name</label>
+                    <input type="text" class="form-control" id="product-name" placeholder="Product Name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description"> Description</label>
+                    <textarea name="" class="form-control" id="product-description" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="starting-bid"></i> Starting Bid</label>
+                    <input type="text" class="form-control" id="starting-bid" placeholder="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-duration">Duration</label>
+                    <select name="" class="form-control" id="product-duration">
+                        <option value="15">15 Mins</option>
+                        <option value="30">30 Mins</option>
+                        <option value="45">45 Mins</option>
+                    </select>
+                </div>
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                </form>
+
+                <br>
 
 
             </div>
