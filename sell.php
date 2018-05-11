@@ -1,6 +1,8 @@
 <?php
     //include auth.php file on all secure pages
     include("auth.php");
+    include("connection.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -65,42 +67,79 @@
                 <hr>
 
                 <h4>Sell! Sell! Sell!</h4>
-                <small id="fileHelp" class="form-text text-muted">Input the product details required to sell.</small>
+                <small id="" class="form-text text-muted">Input the product details required to sell.</small>
 
                 <hr>
 
-                <form action="">
-                <div class="form-group">
-                    <label for="product-image"></i> Upload Image</label>
-                    <input type="file" class="form-control-file" id="product-image" aria-describedby="fileHelp">
-                    <small id="fileHelp" class="form-text text-muted">Upload a clear product image for better results.</small>
-                </div>
+                <?php
 
-                <div class="form-group">
-                    <label for="product-name"></i> Product Name</label>
-                    <input type="text" class="form-control" id="product-name" placeholder="Name of product">
-                </div>
-                
-                <div class="form-group">
-                    <label for="product-description"> Description</label>
-                    <textarea name="" class="form-control" id="product-description" rows="5" placeholder="Describe the product"></textarea>
-                </div>
+                    if (isset($_POST['sell-products'])) {
 
-                <div class="form-group">
-                    <label for="starting-bid"></i> Starting Bid</label>
-                    <input type="number" class="form-control" id="starting-bid" placeholder="0">
-                </div>
-                
-                <div class="form-group">
-                    <label for="product-duration">Duration</label>
-                    <select name="" class="form-control" id="product-duration">
-                        <option value="15">15 Mins</option>
-                        <option value="30">30 Mins</option>
-                        <option value="45">45 Mins</option>
-                    </select>
-                </div>
+                        
+                        $productName = $_POST['product-name'];
+                        $productDesc = $_POST['product-desc'];
+                        $startBid = $_POST['start-bid'];
+                        $duration = $_POST['product-duration'];
+                        $productImage = $_FILES['file']['name'];
+                        
+                        $target_dir = "data/product_images/";
+                        $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                        // Select file type
+                        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    
+                        // Valid file extensions
+                        $extensions_arr = array("jpg","jpeg","png","gif");
+                    
+                        // Check extension
+                        if( in_array($imageFileType,$extensions_arr) ){
+                        
+                        // Insert record
+                        $query = "INSERT INTO product (idProduct, productName, productDesc, productImage, startingPrice, productDuration)
+                            VALUES (NOT NULL, '$productName', '$productDesc', '$productImage', '$startBid', '$duration')";
+                        mysqli_query($conn,$query);
+                        
+                        // Upload file
+                        move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
+                    
+                        }
+                        
+                    }
+
+                ?>
+
+                <form  method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="product-image"></i> Upload Image</label>
+                        <input type="file" name="file" class="form-control-file" id="product-image" aria-describedby="fileHelp">
+                        <small id="fileHelp" class="form-text text-muted">Upload a clear product image for better results.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-name"></i> Product Name</label>
+                        <input type="text" class="form-control" id="product-name" placeholder="Name of product" name="product-name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-description"> Description</label>
+                        <textarea class="form-control" id="product-description" rows="5" placeholder="Describe the product" name="product-desc"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="starting-bid"></i> Starting Bid</label>
+                        <input type="number" class="form-control" id="starting-bid" placeholder="0" name="start-bid">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="product-duration">Duration</label>
+                        <select class="form-control" id="product-duration" name="product-duration">
+                            <option value="15">15 Mins</option>
+                            <option value="30">30 Mins</option>
+                            <option value="45">45 Mins</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" name="sell-products">Submit</button>
                     
                 </form>
 
