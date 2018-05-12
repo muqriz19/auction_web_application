@@ -107,6 +107,37 @@
 
                 <div class="all-products">
                     <h6>All Products</h6>
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Product Description</th>
+                        <th>Starting Price</th>
+                        <th>Duration</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <?php
+                                include("connection.php");
+                                
+                                $result = mysqli_query($conn, "SELECT * FROM product") ;
+                                
+                                while($test = mysqli_fetch_array($result))
+                                {
+                                    //$id = $test['id']; 
+                                    echo"<td>".$test['idProduct']."</td>";
+                                    echo"<td>".$test['productName']."</td>";
+                                    echo"<td>".$test['productDesc']."</td>";
+                                    echo"<td>".$test['startingPrice']."</td>";
+                                    echo"<td>".$test['productDuration']."</td>"; 
+                                    echo "</tr>";
+                                }
+                                mysqli_close($conn);
+                            ?>
+                    </table> 
                 </div>
             </div>
 
