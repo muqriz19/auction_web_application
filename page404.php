@@ -41,17 +41,14 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-                <!-- Start Success Talk -->
+                <!-- Start Redirect -->
                     <?php
 
-                        if(session_destroy()) {
                             //echo "<p class='text-center logout'>Loging Out</p>";
                             header('Refresh: 5; url=login.php');
                             exit();
-
-                        }
                     ?>
-                <!-- End Success Talk -->
+                <!-- End Redirect -->
             </div>
             <div class="col-2"></div>
         </div>
