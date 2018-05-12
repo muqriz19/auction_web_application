@@ -70,7 +70,7 @@
                 <div class="all-users">
                     <h6><strong>All Users</strong></h6>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="user-table">
                         <thead>
                         <tr>
                         <th>ID</th>
@@ -108,7 +108,7 @@
                 <div class="all-products">
                     <h6>All Products</h6>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="product-table">
                         <thead>
                         <tr>
                         <th>ID</th>
