@@ -25,15 +25,13 @@
 
         
         <!-- Start Logo -->
+        <div id="logo">
         <div class="row">
-                <div id="logo">
-                <div class="img-circle mx-auto d-block logo">
-                    <img src="images/logo.png" alt="Auction Web Application Logo">
-                </div>
+            <img src="images/logo.png" alt="Auction Web Application Logo">
         </div>
     
-        <!-- End Logo -->
         </div>
+        <!-- End Logo -->
 
         <hr>
 

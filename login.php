@@ -60,9 +60,8 @@
         <!-- Start Logo -->
         <div id="logo">
             <div class="row">
-                <div class="img-circle mx-auto d-block logo">
-                    <img src="images/logo.png" alt="Auction Web Application Logo">
-                </div>
+
+                <img src="images/logo.png" alt="Auction Web Application Logo">
             </div>
 
         </div>

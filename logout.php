@@ -20,17 +20,16 @@
     
     <div class="container-fluid">
 
+        
+        <!-- Start Logo -->
         <div id="logo">
-
-            <!-- Start Logo -->
             <div class="row">
-                <div class="img-circle mx-auto d-block logo">
+
                     <img src="images/logo.png" alt="Auction Web Application Logo">
-                </div>
             </div>
             
-            <!-- End Logo -->
         </div>
+            <!-- End Logo -->
 
         <hr>
 
