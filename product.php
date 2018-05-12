@@ -80,12 +80,12 @@
                         if(mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
                                 echo "<div class='col-sm-6'>";
-                                echo "<div id='box' class='simple-shadow'>";
+                                echo "<div id='box'>";
                                 echo "<h5 class='text-center'>{$row['productName']}</h5>";
                                 echo "<hr>";
                                 echo "<img id='box-image' class='img-fluid' src=data/product_images/{$row['productImage']} alt={$row['productImage']}>";
                                 echo "<hr><p class='text-center'>Starting Price - RM{$row['startingPrice']}</p>";
-                                echo "<hrr><a href='details.php?id={$row['idProduct']}' class='btn btn-primary'> Bid </a>";
+                                echo "<hr><a id='max-btn' href='details.php?id={$row['idProduct']}' class='btn btn-primary'> Bid </a>";
 
                                 echo "</div></div><br>";
 
@@ -102,6 +102,8 @@
 
 
             </div>
+
+            <div class="col-1"></div>
         </div>
     </div>
 
