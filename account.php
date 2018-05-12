@@ -81,7 +81,7 @@
                             <?php
                                 //include("connection.php");
                                 
-                                $result = mysqli_query($conn, "SELECT * FROM user") ;
+                                $result = mysqli_query($conn, "SELECT * FROM user");
                                 
                                 while($test = mysqli_fetch_array($result))
                                 {
@@ -119,7 +119,7 @@
                             <?php
                                 include("connection.php");
                                 
-                                $result = mysqli_query($conn, "SELECT * FROM product") ;
+                                $result = mysqli_query($conn, "SELECT * FROM product");
                                 
                                 while($test = mysqli_fetch_array($result))
                                 {

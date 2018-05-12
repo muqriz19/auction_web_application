@@ -1,11 +1,13 @@
 <?php
-    
+    session_start();
+
+    $product_deats_id = $_SESSION['id'];
+
     //include auth.php file on all secure pages
     include("auth.php");
     include("connection.php");
 
-
-    $result = mysqli_query($conn, "SELECT idProduct, productName, productImage, startingPrice FROM product ORDER BY idProduct DESC LIMIT 15");
+    $result = mysqli_query($conn, "SELECT * FROM product WHERE idProduct='$product_deats_id'");
 
 ?>
 
@@ -72,34 +74,23 @@
                 <small id="" class="form-text text-muted">Checkout the all the available products for auction.</small>
 
                 <hr>
-                   
-                
-                <div class='row'>
-                    <?php
 
-                        if(mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo "<div class='col-sm-6'>";
-                                echo "<div id='box' class='simple-shadow'>";
-                                echo "<h5 class='text-center'>{$row['productName']}</h5>";
-                                echo "<hr>";
-                                echo "<img id='box-image' class='img-fluid' src=data/product_images/{$row['productImage']} alt={$row['productImage']}>";
-                                echo "<hr><p class='text-center'>Starting Price - RM{$row['startingPrice']}</p>";
-                                echo "<hrr><a href='details.php?id={$row['idProduct']}' class='btn btn-primary'> Bid </a>";
-
-                                echo "</div></div><br>";
-
-                            }
-                        } else {
-                            echo "Nothing";
-                        }
-
-                    ?>
+                <div class="row">
+                    <div class="col-6">
+                        <?php echo $dyn_table; ?>
+                    </div>
 
                 </div>
+                
 
                 <br>
 
+
+            </div>
+
+            <div class="col-1"></div>
+        </div>
+    </header>
 
             </div>
         </div>
