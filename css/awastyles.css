@@ -126,11 +126,16 @@ body {
     display: block;
     margin: auto;
     border: 2px rgb(189,189,189);
-    
-
-
 }
 
 #max-btn {
     width: 100%;
+}
+
+#auction-info {
+    color: wheat;
+    background-color: rgb(43, 49, 51);
+    padding: 10px;
+    opacity: 0.9;
+
 }

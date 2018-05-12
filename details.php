@@ -1,14 +1,18 @@
 <?php
-    session_start();
 
-    $product_deats_id = $_SESSION['id'];
 
-    //include auth.php file on all secure pages
-    include("auth.php");
-    include("connection.php");
+    if(isset($_GET['id'])) {
+        //include auth.php file on all secure pages
+        include("auth.php");
+        include("connection.php");
 
-    $result = mysqli_query($conn, "SELECT * FROM product WHERE idProduct='$product_deats_id'");
+        $ID = mysqli_real_escape_string($conn, $_GET['id']);
+    
+        $sql = "SELECT * FROM product WHERE idProduct= '$ID'";
+        $result = mysqli_query($conn, $sql) or die("Bad Query: $sql");
+        $row = mysqli_fetch_array($result);
 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Auction</title>
+    <title>Details</title>
     <link rel="stylesheet" type="text/css" href="css/awastyles.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome/fontawesome-all.min.css">
@@ -40,8 +44,6 @@
         <!-- End Logo -->
 
         <hr>
-
-
 
         <div class="row">
 
@@ -69,20 +71,49 @@
 
 
                 <hr>
+                
+                <div id="all-box">
 
-                <h4>Ready to Auction?</h4>
-                <small id="" class="form-text text-muted">Checkout the all the available products for auction.</small>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="product-image">
 
-                <hr>
+                                <img class="img-fluid" src="data/product_images/<?php echo $row['productImage'] ?>" alt="">
+                            </div>
 
-                <div class="row">
-                    <div class="col-6">
-                        <?php echo $dyn_table; ?>
+                        </div>
+
+
+                        <div class="col-sm-8">
+                            <div id="product-details">
+
+                                <h4><?php echo $row['productName']; ?></h4>
+                                <p><?php echo $row['productDesc']; ?></p>
+                                <h5>Starting Bid RM<?php echo $row['startingPrice']; ?></h5>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-                
 
+                    <div class="row">
+                        <div class="col-sm-12">
+                            
+                            <div id="auction-info">
+
+                                <h4 class="text-center">Time Left: <?php echo $row['productDuration']; ?></h4>
+                                
+                                <h4 class="text-center">Highest Bid: RM<?php echo $row['startingPrice']; ?></h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>CHAT BOX</p>
+                        </div>
+                    </div>
+                    
+                </div>
                 <br>
 
 
@@ -90,9 +121,6 @@
 
             <div class="col-1"></div>
         </div>
-    </header>
-
-            </div>
         </div>
     </div>
 
