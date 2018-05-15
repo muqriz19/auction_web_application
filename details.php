@@ -112,6 +112,9 @@
     <div class="values">Hello</div>
 </div>
 
+
+    <div id="yayatime">Yola</div>
+
 <div id="basicUsage">00:00:00</div>
                 
 
@@ -165,6 +168,7 @@
     </footer>
     <!-- End Footer -->
 
+    <script src="js/jquery-3.3.1.js"></script>
     <script src="js/easytimer.js"></script>
     <script>
 var timer = new Timer();
@@ -177,19 +181,18 @@ timer.addEventListener('secondsUpdated', function (e) {
 var time = new Timer();
 
 time.start({countdown: true, startValues: {seconds: 30}});
-$('#countdownExample .values').html(time.getTimeValues().toString());
+$('#yayatime').html(time.getTimeValues().toString());
 time.addEventListener('secondsUpdated', function (e) {
-    $('#countdownExample .values').html(time.getTimeValues().toString());
+    $('#yayatime').html(time.getTimeValues().toString());
 });
 time.addEventListener('targetAchieved', function (e) {
-    $('#countdownExample .values').html('KABOOM!!');
+    $('#yayatime').html('KABOOM!!');
 });
 
                 
 
     </script>
     <script src="js/awascript.js"></script>
-    <script src="js/jquery-3.3.1.js"></script>
     <script src="js/popper-utils.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
