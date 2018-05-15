@@ -34,7 +34,7 @@
         <hr>
 
         <div class="back simple-shadow">
-            <div class="logout">
+            <div class="logout-banner">
             
                 <h2 class="text-center">Logging Out!</h2>
                 <p class="text-center">You will be redirect to the login page, shortly!</p>

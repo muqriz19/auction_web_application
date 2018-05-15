@@ -72,7 +72,7 @@
 
                 <hr>
                 
-                <div id="all-box">
+                <div id="all-box" class="simple-shadow">
 
                     <div class="row">
                         <div class="col-sm-4">
@@ -100,7 +100,7 @@
                             
                             <div id="auction-info">
 
-                                <h4 class="text-center">Time Left: <?php echo $row['productDuration']; ?></h4>
+                                <h4 class="text-center">Time Left: <?php echo $row['productDuration'] - 12; ?></h4>
                                 
                                 <h4 class="text-center">Highest Bid: RM<?php echo $row['startingPrice']; ?></h4>
                             </div>
@@ -109,7 +109,31 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <p>CHAT BOX</p>
+                            <div id="wrapper">
+                                <div id="menu">
+                                    <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
+                                    <div style="clear:both"></div>
+                                </div>
+                                
+                                <div id="chatbox" class="card"></div>
+                                
+                                <form>
+        
+                                    <div class="form-group" id="chat-message">
+                                        <div class="input-group">
+                                            <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                                            <span class="input-group-btn">
+                                            <button id="send-button" class="btn btn-primary">Bid</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>                             
+                                
+<!--                                 <form name="message" action="">
+                                    <input name="usermsg" type="text" id="usermsg" size="63" />
+                                    <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+                                </form> -->
+                            </div>
                         </div>
                     </div>
                     
