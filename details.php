@@ -100,12 +100,20 @@
                             
                             <div id="auction-info">
 
-                                <h4 class="text-center">Time Left: <?php echo $row['productDuration'] - 12; ?></h4>
+                                <h4 class="text-center" id="countdown">Time Left: <span class="timer"><?php echo $row['productDuration']; ?></span></h4>
                                 
-                                <h4 class="text-center">Highest Bid: RM<?php echo $row['startingPrice']; ?></h4>
+                                <h4 class="text-center">Highest Bid: RM<span id="highBid"><?php echo $row['startingPrice']; ?></span></h4>
                             </div>
                         </div>
                     </div>
+
+                    
+<div id="countdownExample">
+    <div class="values">Hello</div>
+</div>
+
+<div id="basicUsage">00:00:00</div>
+                
 
                     <div class="row">
                         <div class="col-sm-12">
@@ -157,6 +165,29 @@
     </footer>
     <!-- End Footer -->
 
+    <script src="js/easytimer.js"></script>
+    <script>
+var timer = new Timer();
+
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#basicUsage').html(timer.getTimeValues().toString());
+});
+
+var time = new Timer();
+
+time.start({countdown: true, startValues: {seconds: 30}});
+$('#countdownExample .values').html(time.getTimeValues().toString());
+time.addEventListener('secondsUpdated', function (e) {
+    $('#countdownExample .values').html(time.getTimeValues().toString());
+});
+time.addEventListener('targetAchieved', function (e) {
+    $('#countdownExample .values').html('KABOOM!!');
+});
+
+                
+
+    </script>
     <script src="js/awascript.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/popper-utils.min.js"></script>
