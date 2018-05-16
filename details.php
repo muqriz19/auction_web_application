@@ -3,8 +3,8 @@
 
     if(isset($_GET['id'])) {
         //include auth.php file on all secure pages
-        include("auth.php");
         include("connection.php");
+        include("auth.php");
 
         $ID = mysqli_real_escape_string($conn, $_GET['id']);
     
@@ -100,50 +100,35 @@
                             
                             <div id="auction-info">
 
-                                <h4 class="text-center" id="countdown">Time Left: <span class="timer"><?php echo $row['productDuration']; ?></span></h4>
+                                <h4 class="text-center">Time Left: <span id="countdown" class="timer"><?php echo $row['productDuration']; ?></span></h4>
                                 
                                 <h4 class="text-center">Highest Bid: RM<span id="highBid"><?php echo $row['startingPrice']; ?></span></h4>
                             </div>
                         </div>
-                    </div>
-
-                    
-<div id="countdownExample">
-    <div class="values">Hello</div>
-</div>
-
-
-    <div id="yayatime">Yola</div>
-
-<div id="basicUsage">00:00:00</div>
-                
+                    </div>               
 
                     <div class="row">
                         <div class="col-sm-12">
                             <div id="wrapper">
                                 <div id="menu">
-                                    <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-                                    <div style="clear:both"></div>
+                                    <div requirestyle="clear:both"></div>
                                 </div>
                                 
-                                <div id="chatbox" class="card"></div>
+                                <div id="chatbox" class="card">
+                                </div>
                                 
-                                <form>
+                                <form name="bid" method>
         
                                     <div class="form-group" id="chat-message">
                                         <div class="input-group">
-                                            <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." />
+                                            <input id="bid-input" type="text" name="usermsg" class="form-control input-sm chat_input" placeholder="Write your message here..." />
                                             <span class="input-group-btn">
-                                            <button id="send-button" class="btn btn-primary">Bid</button>
+                                            <button name="submitmsg" id="submitmsg" class="btn btn-primary">Bid</button>
                                             </span>
                                         </div>
                                     </div>
                                 </form>                             
                                 
-<!--                                 <form name="message" action="">
-                                    <input name="usermsg" type="text" id="usermsg" size="63" />
-                                    <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
-                                </form> -->
                             </div>
                         </div>
                     </div>
@@ -171,22 +156,30 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/easytimer.js"></script>
     <script>
-    var timer = new Timer();
 
-    timer.start();
-    timer.addEventListener('secondsUpdated', function (e) {
-        $('#basicUsage').html(timer.getTimeValues().toString());
-    });
+    timedata = parseInt(document.getElementById("countdown").innerHTML);
+
+    if (timedata === 15) {
+        timedata = 900;
+
+    } else if(timedata === 30) {
+        timedata = 1800;
+
+    } else if (timedata === 45) {
+        timedata = 2700;
+
+    }
+    console.log(timedata);
 
     var time = new Timer();
 
-    time.start({countdown: true, startValues: {seconds: 30}});
-    $('#yayatime').html(time.getTimeValues().toString());
+    time.start({countdown: true, startValues: {seconds: timedata}});
+    $('#countdown').html(time.getTimeValues().toString());
     time.addEventListener('secondsUpdated', function (e) {
-        $('#yayatime').html(time.getTimeValues().toString());
+        $('#countdown').html(time.getTimeValues().toString());
     });
     time.addEventListener('targetAchieved', function (e) {
-        $('#yayatime').html('KABOOM!!');
+        $('#countdown').html('Auction Has Ended');
     });
 
                 

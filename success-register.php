@@ -15,41 +15,47 @@
     <div class="container-fluid">
 
         <!-- Start Logo -->
+        <div id="logo">
         <div class="row">
-            <div class="img-circle mx-auto d-block logo">
-                <img src="images/logo.png" alt="Auction Web Application Logo">
-            </div>
+            <img src="images/logo.png" alt="Auction Web Application Logo">
+        </div>
+    
         </div>
 
         <!-- End Logo -->
         <hr>
 
-        <!-- Start Title -->
-        <h2 class="text-center logout">Registration Successful</h2>
+        
 
-        <p class="text-center">Congrats! You are now registered in Auction Web Application!</p>
 
-        <p class="text-center">You will be redirected to the login page, shortly! Enjoy!</p>
-
-        <!-- End Title -->
 
         <hr>
 
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <!-- Start Success Talk -->
-                    <?php
+            <div class="col-sm-2"></div>
 
-                        echo "<p class='text-center'>Hope you enjoy our auction web application - Chat away to auction!</p>";
-                        echo "<p class='text-center'>Click here to <a href='login.php'>Login</a> or wait to be automatically redirected!</p>";
-                        header('Refresh: 10; url=login.php');
+            <div class="success back yellow">
+
+                <!-- Start Title -->
+                <h2 class="text-center">Registration Successful!</h2>
+
+                <p class="text-center">Congrats! You are now registered in Auction Web Application!</p>
+
+                <p class="text-center">You will be redirected to the login page, shortly! Enjoy!</p>
+
+                <!-- End Title -->
+
+                <p class="text-center">Click here to <a href='login.php'>Login</a> or wait to be automatically redirected!</p>
+            
+                <!-- Start redirect login -->
+                    <?php
+                        header('Refresh: 7; url=login.php');
                         exit();
 
                     ?>
-                <!-- End Success Talk -->
+
             </div>
-            <div class="col-2"></div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 

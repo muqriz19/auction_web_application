@@ -1,6 +1,12 @@
 <?php
     require('connection.php');
     include("auth.php");
+
+    $user = (string)$_SESSION['username'];
+
+    $userInfoData = mysqli_query($conn, "SELECT * FROM user WHERE userName='".$_SESSION['username']."'");
+
+    $userData = mysqli_fetch_array($userInfoData);
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +43,7 @@
 
             <div class="col-1"></div>
 
-            <div id="panelback" class="col-10 simple-shadow">
+            <div id="panelback" class="col-10">
 
                 <div>
                     <h1 class="text-center">Account</h1>
@@ -63,10 +69,20 @@
 
                 <hr>
 
-                <div class="all-users">
-                    <h6><strong>All Users</strong></h6>
+                <div class="user-info">
+                    <h5 class="text-center">Personal Details</h5>
+                    <p><strong>Full Name: </strong> <?php echo $userData['fullName']; ?></p>
+                    <p><strong>Username: </strong> <?php echo $userData['userName']; ?></p>
+                    <p><strong>Email: </strong> <?php echo $userData['email']; ?></p>
+                    <p><strong>Type: </strong> <?php echo $userData['types']; ?></p>
+                </div>
 
-                    <table class="table table-bordered" id="user-table">
+                <hr>
+
+                <div class="all-users">
+                    <h5><strong>All Users</strong></h5>
+
+                    <table class="table table-bordered simple-shadow" id="user-table">
                         <thead>
                         <tr>
                         <th>ID</th>
@@ -92,7 +108,7 @@
                                     echo"<td>".$test['userName']."</td>";
                                     echo"<td>".$test['email']."</td>";
                                     echo"<td>".$test['types']."</td>"; 
-                                    echo "<td><a href='#edit{$test['idUser']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a href='#del{$test['idUser']}' data-toggle='modal' class='btn btn-warning'> Delete</a>";
+                                    echo "<td><a style='width: 100%;' href='#edit{$test['idUser']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a style='width: 100%;' href='#del{$test['idUser']}' data-toggle='modal' class='btn btn-warning'> Delete</a>";
                                     include ('user_modal.php');
                                     echo "</td>";
                                     echo "</tr>";
@@ -106,9 +122,9 @@
                 <br>
 
                 <div class="all-products">
-                    <h6>All Products</h6>
+                    <h5>All Products</h5>
 
-                    <table class="table table-bordered" id="product-table">
+                    <table class="table table-bordered simple-shadow" id="product-table">
                         <thead>
                         <tr>
                         <th>ID</th>
@@ -133,9 +149,8 @@
                                     echo "<td>".$test['productDesc']."</td>";
                                     echo "<td>".$test['startingPrice']."</td>";
                                     echo "<td>".$test['productDuration']."</td>";
-                                    echo "<td><a href='#edit{$test['idProduct']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a href='#del{$test['idProduct']}' data-toggle='modal' class='btn btn-warning'> Delete</a>";
+                                    echo "<td><a style='width: 100%;' href='#edit{$test['idProduct']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a style='width: 100%;' href='#del{$test['idProduct']}' data-toggle='modal' class='btn btn-warning'> Delete</a></td>";
                                     include ('product_modal.php');
-                                    echo "</td>";
                                     echo "</tr>";
                                 }
                                 mysqli_close($conn);

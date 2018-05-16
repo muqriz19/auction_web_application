@@ -45,7 +45,7 @@
 
             <div class="col-1"></div>
 
-            <div id="panelback" class="col-10 simple-shadow">
+            <div id="panelback" class="col-10">
 
                 <div>
                     <h1 class="text-center">Auction</h1>

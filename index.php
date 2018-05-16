@@ -1,6 +1,12 @@
 <?php
-    //include auth.php file on all secure pages
+    require('connection.php');
     include("auth.php");
+
+    $user = (string)$_SESSION['username'];
+
+    $userInfoData = mysqli_query($conn, "SELECT * FROM user WHERE userName='".$_SESSION['username']."'");
+
+    $userData = mysqli_fetch_array($userInfoData);
 ?>
 
 <!DOCTYPE html>
@@ -21,25 +27,23 @@
 
     <div class="container-fluid">
 
-        
         <!-- Start Logo -->
+        
         <div id="logo">
         <div class="row">
                     <img src="images/logo.png" alt="Auction Web Application Logo">
-        </div>
+            </div>
     
-        <!-- End Logo -->
         </div>
+        <!-- End Logo -->
 
         <hr>
-
-
 
         <div class="row">
 
             <div class="col-1"></div>
 
-            <div id="panelback" class="col-10 simple-shadow">
+            <div id="panelback" class="col-10">
 
                 <div>
                     <h1 class="text-center">Home</h1>
@@ -50,7 +54,7 @@
 
                 <div class="nav-around">
                     <ul>
-                        <li class="active"><a href="index.php" class=""><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active"><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="account.php"><i class="fas fa-user"></i> Account</a></li>
                         <li><a href="product.php"><i class="fas fa-gavel"></i> Auction</a></li>
                         <li><a href="sell.php"><i class="fas fa-dollar-sign"></i> Sell</a></li>
@@ -58,17 +62,39 @@
                     </ul> 
                 </div>
 
+                <hr>
 
+                <h4>Account</h4>
+                <small id="fileHelp" class="form-text text-muted">Check your account.</small>
 
                 <hr>
 
+                <div class="user-info">
+                    <h5>Hello <?php echo $userData['fullName']?></h5>
+                </div>
 
+                <hr>
 
-            </div>
+                <div class="promo1">
+
+                    <h5><strong>Promotion 1</strong></h5>
+                    
+                    <img class="img-fluid divCenter" src="images/ad-banner-1.jpg" alt="">
+
+                </div>
+
+                <br>
+
+                <div class="promo1">
+
+                <h5><strong>Promotion 1</strong></h5>
+
+                <img class="img-fluid divCenter" src="images/ad-banner-1.jpg" alt="">
+
+                </div>               
 
             <div class="col-1"></div>
         </div>
-    </header>
 
             </div>
         </div>
