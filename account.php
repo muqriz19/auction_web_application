@@ -74,6 +74,7 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Type</th>
+                        <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -86,11 +87,14 @@
                                 while($test = mysqli_fetch_array($result))
                                 {
                                     //$id = $test['id']; 
-                                    echo"<td>".$test['idBidder']."</td>";
+                                    echo"<td>".$test['idUser']."</td>";
                                     echo"<td>".$test['fullName']."</td>";
                                     echo"<td>".$test['userName']."</td>";
                                     echo"<td>".$test['email']."</td>";
                                     echo"<td>".$test['types']."</td>"; 
+                                    echo "<td><a href='#edit{$test['idUser']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a href='#del{$test['idUser']}' data-toggle='modal' class='btn btn-warning'> Delete</a>";
+                                    include ('user_modal.php');
+                                    echo "</td>";
                                     echo "</tr>";
                                 }
                                 mysqli_close($conn);
@@ -112,6 +116,7 @@
                         <th>Product Description</th>
                         <th>Starting Price</th>
                         <th>Duration</th>
+                        <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -123,23 +128,29 @@
                                 
                                 while($test = mysqli_fetch_array($result))
                                 {
-                                    //$id = $test['id']; 
-                                    echo"<td>".$test['idProduct']."</td>";
-                                    echo"<td>".$test['productName']."</td>";
-                                    echo"<td>".$test['productDesc']."</td>";
-                                    echo"<td>".$test['startingPrice']."</td>";
-                                    echo"<td>".$test['productDuration']."</td>"; 
+                                    echo "<td>".$test['idProduct']."</td>";
+                                    echo "<td>".$test['productName']."</td>";
+                                    echo "<td>".$test['productDesc']."</td>";
+                                    echo "<td>".$test['startingPrice']."</td>";
+                                    echo "<td>".$test['productDuration']."</td>";
+                                    echo "<td><a href='#edit{$test['idProduct']}' data-toggle='modal' class='btn btn-primary'> Edit</a>  <a href='#del{$test['idProduct']}' data-toggle='modal' class='btn btn-warning'> Delete</a>";
+                                    include ('product_modal.php');
+                                    echo "</td>";
                                     echo "</tr>";
                                 }
                                 mysqli_close($conn);
                             ?>
                     </table> 
                 </div>
+
+                <!-- <div id="CRUD">
+                
+
+                </div> -->
             </div>
 
             <div class="col-1"></div>
         </div>
-    </header>
 
             </div>
         </div>

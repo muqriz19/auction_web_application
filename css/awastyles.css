@@ -177,3 +177,10 @@ body {
 .logout-banner {
     color: rgb(221, 201, 86);
 }
+
+#image-modal {
+    width: 250px;
+    height: 350px;
+    display: block;
+    margin: auto;
+}

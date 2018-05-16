@@ -44,7 +44,7 @@
         $types = stripslashes($_POST['types']);
         $types = mysqli_real_escape_string($conn,$types);
 
-        $user = "INSERT INTO user (idBidder, fullName, userName, dateOfBirth, email, userPassword, types)
+        $user = "INSERT INTO user (idUser, fullName, userName, dateOfBirth, email, userPassword, types)
             VALUES (NULL, '$fullname', '$username', '$dateofbirth',  '$email', '".md5($password)."', '$types')";
 
             
