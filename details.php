@@ -171,23 +171,23 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/easytimer.js"></script>
     <script>
-var timer = new Timer();
+    var timer = new Timer();
 
-timer.start();
-timer.addEventListener('secondsUpdated', function (e) {
-    $('#basicUsage').html(timer.getTimeValues().toString());
-});
+    timer.start();
+    timer.addEventListener('secondsUpdated', function (e) {
+        $('#basicUsage').html(timer.getTimeValues().toString());
+    });
 
-var time = new Timer();
+    var time = new Timer();
 
-time.start({countdown: true, startValues: {seconds: 30}});
-$('#yayatime').html(time.getTimeValues().toString());
-time.addEventListener('secondsUpdated', function (e) {
+    time.start({countdown: true, startValues: {seconds: 30}});
     $('#yayatime').html(time.getTimeValues().toString());
-});
-time.addEventListener('targetAchieved', function (e) {
-    $('#yayatime').html('KABOOM!!');
-});
+    time.addEventListener('secondsUpdated', function (e) {
+        $('#yayatime').html(time.getTimeValues().toString());
+    });
+    time.addEventListener('targetAchieved', function (e) {
+        $('#yayatime').html('KABOOM!!');
+    });
 
                 
 
