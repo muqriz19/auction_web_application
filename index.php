@@ -70,16 +70,18 @@
                 <hr>
 
                 <div class="user-info">
-                    <h5>Hello <?php echo $userData['fullName']?></h5>
+                    <h5>Hello <?php echo $userData['fullName']?>!</h5>
+                    <p>How are you today?</p>
+                    
                 </div>
 
                 <hr>
 
                 <div class="promo1">
 
-                    <h5><strong>Promotion 1</strong></h5>
+                    <h5 class="text-center"><strong>Promotion 1</strong></h5>
                     
-                    <img class="img-fluid divCenter" src="images/ad-banner-1.jpg" alt="">
+                    <a href="product.php" ><img class="img-fluid divCenter" src="images/ad-banner-1.png" alt=""></a>
 
                 </div>
 
@@ -87,10 +89,10 @@
 
                 <div class="promo1">
 
-                <h5><strong>Promotion 1</strong></h5>
+                <h5 class="text-center"><strong>Promotion 2</strong></h5>
 
-                <img class="img-fluid divCenter" src="images/ad-banner-1.jpg" alt="">
-
+                <a href="product.php" ><img class="img-fluid divCenter" src="images/ad-banner-2.jpg" alt=""></a>
+                <br>
                 </div>               
 
             <div class="col-1"></div>

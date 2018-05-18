@@ -85,7 +85,7 @@
                                 echo "<hr>";
                                 echo "<img id='box-image' class='img-fluid' src=data/product_images/{$row['productImage']} alt={$row['productImage']}>";
                                 echo "<hr><p class='text-center'>Starting Price - RM{$row['startingPrice']}</p>";
-                                echo "<hr><a id='max-btn' href='details.php?id={$row['idProduct']}' class='btn btn-primary'> Bid </a>";
+                                echo "<hr><a id='max-btn' href='details.php?id={$row['idProduct']}' class='btn btn-success'><i class='fas fa-gavel'></i></a>";
 
                                 echo "</div></div><br>";
 
